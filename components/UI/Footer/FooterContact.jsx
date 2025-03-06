@@ -1,16 +1,16 @@
 export const contactInfo = { 
     info:[ 
         {
-            url: "tel:021 280 5002", 
-            label: "021 280 5002",
+            url: "tel:02102706480", 
+            label: "021 0270 6480",
             icon: { 
                 url: "/phone.png", 
                 alt: "phone icon" 
             },
         },
         {
-            url: "mailto:info@kcleaningsolution.co.nz", 
-            label: "info@kcleaningsolution.co.nz", 
+            url: "mailto:info@quickdryrestorations.co.nz", 
+            label: "info@quickdryrestorations.co.nz", 
             icon: { 
                 url: "/email.png", 
                 alt: "Email icon" 
