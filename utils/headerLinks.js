@@ -8,33 +8,24 @@ export const headerLinks = [
         { 
             id: 2, 
             label: "Our Services",
-            url: "/#gradient-tabs",
+            url: "/our-services#gradient-tabs",
            
-            
         }, 
         {
             id: 1,
             label: "Our Process",
-            url: "/#process",
-           
+            url: "/our-process#process",
             },
     {
     id: 1,
     label: "Our Work",
-    url: "/#our-work",
+    url: "/gallery#our-work",
    
     },
-  
     {
         id: 1,
         label: "Reviews",
         url: "/customer-reviews",
-       
         },
-    
-
-        
-
-
 ]
 
