@@ -39,9 +39,8 @@ var settings = {
 };
 
 export default function GoogleReviewsCarousel({data}) {
+  if (!data && data.length === 0) return null;
   console.log(data)
-  if (!data || data.length === 0) return null;
-
   // slider arrow functionality
   const sliderRef = useRef(null);
 
@@ -59,21 +58,21 @@ export default function GoogleReviewsCarousel({data}) {
   };
   // filter review comment 
   const filteredReviewData = data.filter((item) => { 
-    return (    item.starRating === "FIVE" &&
-      typeof item.comment === "string" 
+    return (    item.stars === 5 &&
+      typeof item.text === "string" 
       )
   });
 
-  
+  console.log("filtered " + filteredReviewData)
   const testimonialCardsJSX = filteredReviewData.map(
     (item, index) => {
       if (index > 10) return null;
       return (
         <GoogleReviewCard
           key={index}
-          name={item.reviewer.displayName}
-          description={item.comment}
-          customerPic={item.reviewer.profilePhotoUrl}
+          name={item.name}
+          description={item.text}
+          customerPic={item.reviewerPhotoUrl}
           characterLimit={80}
         />
       );

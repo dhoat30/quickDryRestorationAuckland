@@ -37,7 +37,6 @@ export default function GetQuoteForm({ className, formName = "Get a Quote Form",
     const [mapsLoaded, setMapsLoaded] = useState(false);
 
     const handleChange = (id, value, isSelectMultiple) => {
-        console.log(value);
         let newValue = value.target ? value.target.value : value;
 
         setFormData((prevFormData) => ({

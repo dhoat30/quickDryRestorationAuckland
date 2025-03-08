@@ -30,8 +30,8 @@ const nextConfig = {
     },
     env: {
         url: "https://data.webduel.co.nz",
-        siteUrl: "https://quote.kcleaningsolution.co.nz",
-        siteName: "K Cleaning Solution Wellington",
+        siteUrl: "https://quote.quickdryrestorations.co.nz",
+        siteName: "Quick Dry Restoration",
     },
 
 }

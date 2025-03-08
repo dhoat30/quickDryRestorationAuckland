@@ -13,11 +13,13 @@ import Typography from "@mui/material/Typography";
 
 export default function GoogleReviewGridLayout({data}) {
 
-
+  if(!data && data.length === 0) return null 
+  console.log(data)
+  // filter review comment 
   // filter review comment 
   const filteredReviewData = data.filter((item) => { 
-    return (    item.starRating === "FIVE" &&
-      typeof item.comment === "string"
+    return (    item.stars === 5 &&
+      typeof item.text === "string" 
       )
   });
 
@@ -27,10 +29,10 @@ export default function GoogleReviewGridLayout({data}) {
     
       return (
         <GoogleReviewCard
-          key={index}
-          name={item.reviewer.displayName}
-          description={item.comment}
-          customerPic={item.reviewer.profilePhotoUrl}
+        key={index}
+          name={item.name}
+          description={item.text}
+          customerPic={item.reviewerPhotoUrl}
         />
       );
     }

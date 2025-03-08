@@ -61,7 +61,7 @@ const Div = styled.div`
   
   .profile-wrapper {
     display: flex;
-    flex-wrap: wrap;
+
     align-items: center;
     gap: 8px;
     img{

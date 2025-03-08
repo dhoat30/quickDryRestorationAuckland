@@ -9,7 +9,6 @@ import GetQuoteForm from "@/components/UI/Forms/GetQuoteForm";
 import Video from "@/components/UI/Video/Video";
 export default function FormSection({ title, description, usp, graphic }) {
   let graphicComponent = null 
-console.log(graphic)
   if(graphic.graphic_type === "image"){ 
     const paddingBottom = graphic.image.height/graphic.image.width * 100
     graphicComponent = <div className="image-wrapper border-radius-12" style={{paddingBottom: `${paddingBottom}%`}}>

@@ -1,28 +1,40 @@
-import { google } from 'googleapis';
+import { NextResponse } from "next/server";
+import { ApifyClient } from "apify-client";
+
+export const revalidate = 30 * 86400; // Revalidate every 30 days
 
 export async function GET() {
-  const oauth2Client = new google.auth.OAuth2(
-    process.env.GOOGLE_CLIENT_ID,
-    process.env.GOOGLE_CLIENT_SECRET
-  );
-
-  oauth2Client.setCredentials({
-    refresh_token: process.env.GOOGLE_REFRESH_TOKEN,
-  });
-
   try {
-    const accountId = process.env.GOOGLE_ACCOUNT_ID;
-    const locationId = process.env.GOOGLE_LOCATION_ID;
-
-    const response = await oauth2Client.request({
-      url: `https://mybusiness.googleapis.com/v4/accounts/${accountId}/locations/${locationId}/reviews`,
-      method: 'GET',
+    const client = new ApifyClient({
+      token: process.env.APIFY_API,
     });
 
+    const input = {
+      startUrls: [
+        {
+          url: process.env.GOOGLE_LOCATION_URL,
+        },
+      ],
+      maxReviews: 50,
+      reviewsSort: "newest",
+      language: "en",
+      reviewsOrigin: "all",
+      personalData: true,
+    };
 
-    return new Response(JSON.stringify(response.data || {}), { status: 200 });
+    const run = await client.actor("Xb8osYTtOjlsgI6k9").call(input);
+    const { items } = await client.dataset(run.defaultDatasetId).listItems();
+
+    return NextResponse.json(items, { status: 200 });
   } catch (error) {
-    console.error('Error fetching Google reviews:', error.response?.data || error.message);
-    return new Response(JSON.stringify({ error: 'Failed to fetch Google reviews' }), { status: 500 });
+    console.error("Error fetching Google reviews:", error);
+    return NextResponse.json({ error: "Failed to fetch reviews" }, { status: 500 });
   }
+}
+
+
+export async function Post(req, res) {
+  const response = await res.json();
+
+  return NextResponse.json(response)
 }

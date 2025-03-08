@@ -53,7 +53,6 @@ export async function generateMetadata(props, parent) {
   export default async function PrimeCleanExperts() {
     const data = await getSinglePostData( 'quick-dry-restoration', '/wp-json/wp/v2/cleaning-business')
     const googleReviews = await getGoogleReviews()
-    console.log(googleReviews)
     if(!data) return {notFound: true}
     const sections = data[0]?.acf?.layout
     return (
