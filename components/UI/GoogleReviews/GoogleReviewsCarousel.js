@@ -63,7 +63,6 @@ export default function GoogleReviewsCarousel({data}) {
       )
   });
 
-  console.log("filtered " + filteredReviewData)
   const testimonialCardsJSX = filteredReviewData.map(
     (item, index) => {
       if (index > 10) return null;

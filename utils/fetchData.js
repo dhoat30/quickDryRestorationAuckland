@@ -1,6 +1,3 @@
-const { google } = require("googleapis");
-import { ApifyClient } from "apify-client";
-
 //get single post with slug
 export const getSinglePostData = async (slug, apiRoute) => {
   let response = await fetch(

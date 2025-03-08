@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { ApifyClient } from "apify-client";
 
-export const revalidate = 30 * 86400; // Revalidate every 30 days
 
 export async function GET() {
   try {
