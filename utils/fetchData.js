@@ -44,13 +44,15 @@ export const getOptions = async () => {
 
 // get reivews
 export const getGoogleReviews = async () => {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL; // Change this in production
+    const baseUrl = process.env.siteUrl; // Change this in production
     const res = await fetch(`${baseUrl}/api/google-reviews`, { next: { revalidate: 30 * 86400 } });
 
     if (!res.ok) { 
         console.log("failed to retch")
+    return []
     }
     return res.json();
+  
 };
 
 
