@@ -1,5 +1,9 @@
 const { siteUrl } = require('./next-sitemap.config');
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 
+    (process.env.NODE_ENV === "production" ? "https://quote.quickdryrestorations.co.nz" : "http://localhost:3000");
+    const siteName = "Quick Dry Restoration"
+
 // bundle analyzer 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
     enabled: process.env.ANALYZE === 'true',
@@ -30,8 +34,8 @@ const nextConfig = {
     },
     env: {
         url: "https://data.webduel.co.nz",
-        siteUrl: "https://quote.quickdryrestorations.co.nz",
-        siteName: "Quick Dry Restoration",
+        siteUrl: baseUrl,
+        siteName: siteName,
     },
 
 }
