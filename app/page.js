@@ -60,11 +60,11 @@ export async function generateMetadata(props, parent) {
             <Header />
             <main>
 
-            <Layout sections={sections} />
+            <Layout sections={sections} onlyShowForm={true}/>
                 {/* <Layout sections={postData[0]?.acf?.sections} /> */}
                 {/* <USP showTitle={true} statsArray={options.stats.items} cards={options.usp.items} title={options.usp.section_title} description={options.usp.section_description} /> */}
                 
-                <GoogleReviewsCarousel data={googleReviews} /> 
+                <GoogleReviewsCarousel data={googleReviews}  className="mt-16"/> 
 
             </main>
             <Footer showFooterCta={false} />

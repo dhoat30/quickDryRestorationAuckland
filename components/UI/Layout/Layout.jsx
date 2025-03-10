@@ -13,9 +13,24 @@ import FormSection from "./Sections/FormSection";
 import TestimonialSection from "./Sections/TestimonialSection";
 import OurWorkSection from "./Sections/OurWorkSection";
 import GradientTabs from "./Sections/GradientTabs";
-export default function Layout({ sections, projectsData }) {
+export default function Layout({ sections, projectsData, onlyShowForm }) {
   if (!sections) return null;
   const sectionsJSX = sections.map((section, index) => {
+    if (section.acf_fc_layout === "form_section") {
+      return (
+        <FormSection 
+        key={index}
+        title={section.title}
+        description={section.description} 
+        usp={section}
+        graphic={section.graphic}
+        />
+      )
+    }
+
+    if(onlyShowForm) { 
+      return null
+    }
     if (section.acf_fc_layout === "zigzag_cards") {
       return (
         <ZigZagCardsSection
@@ -133,17 +148,7 @@ export default function Layout({ sections, projectsData }) {
         />
       );
     }
-    if (section.acf_fc_layout === "form_section") {
-      return (
-        <FormSection 
-        key={index}
-        title={section.title}
-        description={section.description} 
-        usp={section}
-        graphic={section.graphic}
-        />
-      )
-    }
+
     if (section.acf_fc_layout === "testimonials") {
         if(section.testimonials_source === 'facebook'){ 
             return <TestimonialSection key={index} dataArr={section.facebook_reviews} title={section.title} description={section.description} /> 

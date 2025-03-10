@@ -38,7 +38,7 @@ var settings = {
   ],
 };
 
-export default function GoogleReviewsCarousel({data}) {
+export default function GoogleReviewsCarousel({data, className}) {
   if (!data && data.length === 0) return null;
   console.log(data)
   // slider arrow functionality
@@ -79,7 +79,7 @@ export default function GoogleReviewsCarousel({data}) {
   );
 
   return (
-    <Section>
+    <Section className={className}>
       <Container maxWidth="xl">
       <div className="title-row">
           <Typography
