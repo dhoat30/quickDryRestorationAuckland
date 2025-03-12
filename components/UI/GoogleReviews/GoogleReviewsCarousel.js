@@ -5,12 +5,11 @@ import Container from "@mui/material/Container";
 import styled from "@emotion/styled";
 import Slider from "react-slick";
 import CarouselArrows from "../CarouselArrows/CarouselArrows";
-import Link from "next/link";
 import Button from "@mui/material/Button";
 import CallMadeOutlinedIcon from "@mui/icons-material/CallMadeOutlined";
 import GoogleReviewCard from "./GoogleReviewCard/GoogleReviewCard";
 import Typography from "@mui/material/Typography";
-
+import Link from 'next/link'
 var settings = {
   dots: true,
   arrows: false,
@@ -110,7 +109,7 @@ Explore authentic customer feedback and see why people trust us. Each review ref
         </Slider>
       </div>
       <Container maxWidth="xl" className="cta-wrapper mt-40">
-        <Link href={"https://g.page/r/CfiZybByiY7_EAE/review"} target="_blank">
+        <Link href={"https://g.page/r/Ce_ha-DH5uM6EAE/review"} target="_blank">
           <Button variant={`contained`} endIcon={<CallMadeOutlinedIcon />}>
            Leave a Review 
           </Button>

@@ -7,6 +7,8 @@ import Image from "next/image";
 import BeforeAfter from "../../BeforeAfterSlider/BeforeAfter";
 import GetQuoteForm from "@/components/UI/Forms/GetQuoteForm";
 import Video from "@/components/UI/Video/Video";
+import Link from 'next/link'
+
 export default function FormSection({ title, description, usp, graphic }) {
   let graphicComponent = null 
   if(graphic.graphic_type === "image"){ 
@@ -34,6 +36,9 @@ export default function FormSection({ title, description, usp, graphic }) {
             </Typography>
             <Typography component={"div"} variant={"body1"} className="description mt-16">
               {description} 
+            </Typography>
+            <Typography component="div" variant="body1" className="mt-8">
+            If you are looking for a <strong style={{fontWeight: "600"}}>Job</strong>, please click here <Link target="_blank" href="https://www.quickdryrestorations.co.nz/contact-us" style={{fontWeight: "600", textDecoration: "underline"}}>Job Form</Link>
             </Typography>
             <HeroUSP data={usp} className="mb-16"/> 
               {graphicComponent}
